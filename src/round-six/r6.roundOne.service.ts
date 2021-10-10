@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { RoundHelper } from "./r6.helper";
 import { PlayerDTO } from "./r6.players.dto";
-import { Round } from "./r6.round.interface";
+import { IndividualRound } from "./r6.individualRound.class";
 
 /**
  * Futuramente criar interface para abstrair os rounds, tendo:
@@ -11,60 +11,24 @@ import { Round } from "./r6.round.interface";
  * no próprio front end, mas isso é bem pro futuro mesmo. 
  */
 
-export class RoundOneService implements Round{
+export class RoundOneService extends IndividualRound{
 
      _players: PlayerDTO[];
      _deadPlayers: PlayerDTO[] = [];
-     _roundDeathPhrase: string = " se mexeu, e morreu!";
-     _roundSurvivalPhrase: string = " brincou como um mestre e sobreviveu!";
+     _roundDeathPhrase: string[] = 
+        [
+            " tropeçou quando a boneca virou, putz! Ta morto.",
+            " foi empurrado por alguém e foi detectado, acabou morrendo.",
+            " ficou com muito medo de avançar e não chegou a tempo! Direto pro caixão."
+        ];
+     _roundSurvivalPhrase: string[] = 
+     [
+         " foi só na maciota atrás de outro player, sobreviveu.",
+         " permaneceu inabalável mesmo com tanta morte, e jogou perfeitamente!",
+         " quase se mexeu, mas perseverou e ganhou o round!",
+     ];
 
-    constructor(_players: PlayerDTO[]) {
-        this._players = _players;
-    }
-
-    round(){
-        this.setSurvivors(RoundHelper.setNumberOfSurvivors(this._players.length));
-        this.setEventPhrases();
-        return {
-            alivePlayers: this._players,
-            deadPlayers: this.getDeadPlayers()
-        }
-    }
-
-    getDeadPlayers(){
-     return this._deadPlayers;
-    }
-
- 
-    setEventPhrases(){
-        console.log(this._players);
-        console.log('---');
-        console.log(this._deadPlayers);
-        
-        
-        
-        this._players = this._players.map((player) => {
-            player.eventPhrase = player.name + this._roundSurvivalPhrase;
-            return player;
-        });
-        
-        this._deadPlayers = this._deadPlayers.map((player) => {
-            player.eventPhrase = player.name + this._roundDeathPhrase
-            return player;
-        })
-    }
-
-
-    setSurvivors(numberOfSurvivors){
-        let limit = this._players.length -1;
-        for(let i = 0; i < numberOfSurvivors; i++){
-            let randomIndex = Math.floor(Math.random() * limit);
-
-            while(this._deadPlayers.includes(this._players[randomIndex]) || this._players[randomIndex] == undefined)
-                    randomIndex = Math.floor(Math.random() * limit);
-            this._deadPlayers.push(this._players.splice(randomIndex,1)[0]);
-        }
-    }
+    
 
 
 }
