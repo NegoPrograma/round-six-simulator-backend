@@ -1,16 +1,14 @@
 import { RoundHelper } from "./r6.helper";
 import { PlayerDTO } from "./r6.players.dto";
+import { Round } from "./r6.round.class";
 
 
-export class IndividualRound {
+export class IndividualRound  extends Round{
     _players: PlayerDTO[];
     _deadPlayers: PlayerDTO[] = [];
     _roundDeathPhrase: string[] = [];
     _roundSurvivalPhrase: string[] = [];
    
-    constructor(_players: PlayerDTO[]) {
-       this._players = _players;
-   }
 
    round(){
        this.setSurvivors(this._players.length/2);
@@ -19,10 +17,6 @@ export class IndividualRound {
            alivePlayers: this._players,
            deadPlayers: this.getDeadPlayers()
        }
-   }
-
-   getDeadPlayers(){
-    return this._deadPlayers;
    }
 
 
