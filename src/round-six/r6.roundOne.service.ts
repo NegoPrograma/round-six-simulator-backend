@@ -13,8 +13,6 @@ import { IndividualRound } from "./r6.individualRound.class";
 
 export class RoundOneService extends IndividualRound{
 
-     _players: PlayerDTO[];
-     _deadPlayers: PlayerDTO[] = [];
      _roundDeathPhrase: string[] = 
         [
             " tropeçou quando a boneca virou, putz! Ta morto.",

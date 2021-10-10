@@ -12,14 +12,14 @@ import { GroupRound } from "./r6.groupRound.class";
  */
 
 export class RoundThreeService extends GroupRound{
-
+/*
      _players: PlayerDTO[];
      _deadPlayers: PlayerDTO[] = [];
 
 
     round(){
         this.setSurvivors(RoundHelper.setNumberOfSurvivors(this._players.length));
-        this.setEventPhrases();
+    //    this.setEventPhrases();
         return {
             alivePlayers: this._players,
             deadPlayers: this.getDeadPlayers()
@@ -30,7 +30,7 @@ export class RoundThreeService extends GroupRound{
      return this._deadPlayers;
     }
 
- 
+/* 
     setEventPhrases(){
         console.log(this._deadPlayers);
         this._players = this._players.map((player) => {
@@ -45,8 +45,8 @@ export class RoundThreeService extends GroupRound{
             return player;
         })
     }
-
-
+*/
+/*
     setSurvivors(numberOfSurvivors){
         let limit = this._players.length -1;
         for(let i = 0; i < numberOfSurvivors; i++){
@@ -56,6 +56,6 @@ export class RoundThreeService extends GroupRound{
                     randomIndex = Math.floor(Math.random() * limit);
             this._deadPlayers.push(this._players.splice(randomIndex,1)[0]);
         }
-    }
+    }*/
 
 }

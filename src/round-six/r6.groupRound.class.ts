@@ -1,16 +1,11 @@
 import { RoundHelper } from "./r6.helper";
 import { PlayerDTO } from "./r6.players.dto";
+import { Round } from "./r6.round.class";
 
 
-export class GroupRound {
-    _players: PlayerDTO[];
-    _deadPlayers: PlayerDTO[] = [];
-    _roundDeathPhrase: string[] = [];
-    _roundSurvivalPhrase: string[] = [];
-   
-    constructor(_players: PlayerDTO[]) {
-       this._players = _players;
-   }
+export class GroupRound extends Round {
+    _roundResultsPhrases: string[] = [];
+  /* 
 
    round(){
        this.setSurvivors(RoundHelper.setNumberOfSurvivors(this._players.length));
@@ -21,27 +16,14 @@ export class GroupRound {
        }
    }
 
-   getDeadPlayers(){
-    return this._deadPlayers;
+
+
+   setEventPhrases(winners: PlayerDTO[], losers: PlayerDTO[]){
+       //winner1, winner 2 + frase randomica + loser1, loser2
    }
 
 
-   setEventPhrases(){
-       this._players = this._players.map((player) => {
-           let eventPhrase = this._roundSurvivalPhrase[Math.floor(Math.random() * this._roundSurvivalPhrase.length)]
-           player.eventPhrase = player.name + eventPhrase;
-           return player;
-       });
-       
-       this._deadPlayers = this._deadPlayers.map((player) => {
-           let eventPhrase = this._roundDeathPhrase[Math.floor(Math.random() * this._roundDeathPhrase.length)];
-           player.eventPhrase = player.name + eventPhrase;
-           return player;
-       })
-   }
-
-
-   setSurvivors(numberOfSurvivors){
+   setSurvivors(numberOfMiniRounds,peoplePerRound){
        let limit = this._players.length -1;
        for(let i = 0; i < numberOfSurvivors; i++){
            let randomIndex = Math.floor(Math.random() * limit);
@@ -51,5 +33,5 @@ export class GroupRound {
            this._deadPlayers.push(this._players.splice(randomIndex,1)[0]);
        }
    }
-    
+    */
 }

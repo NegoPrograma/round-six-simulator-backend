@@ -4,8 +4,6 @@ import { Round } from "./r6.round.class";
 
 
 export class IndividualRound  extends Round{
-    _players: PlayerDTO[];
-    _deadPlayers: PlayerDTO[] = [];
     _roundDeathPhrase: string[] = [];
     _roundSurvivalPhrase: string[] = [];
    
