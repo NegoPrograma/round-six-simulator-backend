@@ -12,9 +12,7 @@ import { IndividualRound } from "./r6.individualRound.class";
  */
 
 export class RoundTwoService extends IndividualRound{
-
-     _players: PlayerDTO[];
-     _deadPlayers: PlayerDTO[] = [];
+    _max_players_for_this_round = 25;
      _roundDeathPhrase: string[] = 
         [
             " quebrou o biscoito, e morreu!",

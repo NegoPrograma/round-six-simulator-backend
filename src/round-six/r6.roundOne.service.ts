@@ -13,6 +13,7 @@ import { IndividualRound } from "./r6.individualRound.class";
 
 export class RoundOneService extends IndividualRound{
 
+     _max_players_for_this_round = 40;
      _roundDeathPhrase: string[] = 
         [
             " tropeçou quando a boneca virou, putz! Ta morto.",
@@ -26,7 +27,6 @@ export class RoundOneService extends IndividualRound{
          " quase se mexeu, mas perseverou e ganhou o round!",
      ];
 
-    
-
+     
 
 }
