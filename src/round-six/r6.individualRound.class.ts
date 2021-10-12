@@ -11,7 +11,7 @@ export class IndividualRound  extends Round{
 
    round(): Object{
         this._players = RoundHelper.fillRemainingPlayers(this._players,this._max_players_for_this_round);
-        this.setSurvivors(this._players.length/2);
+        this.setSurvivors(this._players.length/this._death_divider);
         this.setEventPhrases();
         return {
             players: this._players,

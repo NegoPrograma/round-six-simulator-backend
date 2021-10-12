@@ -7,6 +7,7 @@ export class Round {
     _deadPlayers: PlayerDTO[] = [];
     _eventPhrases: string[] = [];
     _max_players_for_this_round: number;
+    _death_divider: number;
    
     constructor(_players: PlayerDTO[]) {
        this._players = _players;
