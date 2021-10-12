@@ -3,16 +3,10 @@ import { RoundHelper } from "./r6.helper";
 import { PlayerDTO } from "./r6.players.dto";
 import { IndividualRound } from "./r6.individualRound.class";
 
-/**
- * Futuramente criar interface para abstrair os rounds, tendo:
- *  as frases de sobrevivencia, 
- * de morte ou de equipe, 
- * o método getSurvivors que deve ser modularizavel de acordo com regras simples que as pessoas vão poder escolher
- * no próprio front end, mas isso é bem pro futuro mesmo. 
- */
 
 export class RoundTwoService extends IndividualRound{
     _max_players_for_this_round = 25;
+    _death_divider = 1.5;
      _roundDeathPhrase: string[] = 
         [
             " quebrou o biscoito, e morreu!",

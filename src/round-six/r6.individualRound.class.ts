@@ -10,12 +10,15 @@ export class IndividualRound  extends Round{
 
 
    round(): Object{
+        let error = this.errorOnOuterPlayerLimit();
+        if(error != null)
+            return error;
         this._players = RoundHelper.fillRemainingPlayers(this._players,this._max_players_for_this_round);
         this.setSurvivors(this._players.length/this._death_divider);
         this.setEventPhrases();
         return {
             players: this._players,
-            events: this._eventPhrases,
+            events: this._event_phrases,
             deadPlayers: this.getDeadPlayers()
         }
    }
@@ -24,24 +27,24 @@ export class IndividualRound  extends Round{
    setEventPhrases(): void{
        this._players.map((player) => {
            let eventPhrase = this._roundSurvivalPhrase[Math.floor(Math.random() * this._roundSurvivalPhrase.length)]
-           this._eventPhrases.push(player.name + eventPhrase);
+           this._event_phrases.push(player.name + eventPhrase);
        });
        
-       this._deadPlayers.map((player) => {
+       this._dead_players.map((player) => {
            let eventPhrase = this._roundDeathPhrase[Math.floor(Math.random() * this._roundDeathPhrase.length)];
-           this._eventPhrases.push(player.name + eventPhrase);
+           this._event_phrases.push(player.name + eventPhrase);
        });
 
-       this._eventPhrases = RoundHelper.shuffleArray(this._eventPhrases);
+       this._event_phrases = RoundHelper.shuffleArray(this._event_phrases);
    }
 
 
    setSurvivors(numberOfDeadPlayers): void{
         this._players = RoundHelper.shuffleArray(this._players);
-        this._deadPlayers.push(...this._players.splice(0,numberOfDeadPlayers));
+        this._dead_players.push(...this._players.splice(0,numberOfDeadPlayers));
         console.log(this._players);
         console.log(this._players.length);
-        console.log(this._deadPlayers);
+        console.log(this._dead_players);
    }
     
 
