@@ -42,7 +42,7 @@ export class RoundsController{
         return new RoundFiveService(players).round();
     }
 
-    @Post('/6')
+    @Post('/six')
     startRoundSix(@Body() data){
         let players: PlayerDTO[] = <PlayerDTO[]> data.players;
         return new RoundSixService(players).round();

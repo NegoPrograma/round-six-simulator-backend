@@ -13,7 +13,6 @@ export class Round {
        
    }
 
-
    getDeadPlayers(){
     return this._dead_players;
    }

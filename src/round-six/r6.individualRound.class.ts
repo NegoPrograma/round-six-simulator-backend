@@ -18,24 +18,22 @@ export class IndividualRound  extends Round{
         this.setEventPhrases();
         return {
             players: this._players,
-            events: this._event_phrases,
             deadPlayers: this.getDeadPlayers()
         }
    }
 
 
    setEventPhrases(): void{
-       this._players.map((player) => {
+       this._players.map((player,index) => {
            let eventPhrase = this._roundSurvivalPhrase[Math.floor(Math.random() * this._roundSurvivalPhrase.length)]
-           this._event_phrases.push(player.name + eventPhrase);
+           this._players[index].eventPhrase =  player.name + eventPhrase;
        });
        
-       this._dead_players.map((player) => {
+       this._dead_players.map((player,index) => {
            let eventPhrase = this._roundDeathPhrase[Math.floor(Math.random() * this._roundDeathPhrase.length)];
-           this._event_phrases.push(player.name + eventPhrase);
+           this._dead_players[index].eventPhrase =  player.name + eventPhrase;
        });
 
-       this._event_phrases = RoundHelper.shuffleArray(this._event_phrases);
    }
 
 

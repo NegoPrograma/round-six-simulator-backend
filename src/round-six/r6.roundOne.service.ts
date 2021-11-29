@@ -11,7 +11,7 @@ export class RoundOneService extends IndividualRound{
      _death_divider = 1.6;
      _roundDeathPhrase: string[] = 
         [
-            " tropeçou quando a boneca virou, putz! Ta morto.",
+            " tropeçou quando a boneca virou, putz! Morreu.",
             " foi empurrado por alguém e foi detectado, acabou morrendo.",
             " ficou com muito medo de avançar e não chegou a tempo! Direto pro caixão."
         ];
